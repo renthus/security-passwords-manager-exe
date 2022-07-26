@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 import random, string
-from model import Password_Register
 
 address_list = [0]
 tamanho_senha = ""
