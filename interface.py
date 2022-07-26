@@ -37,12 +37,12 @@ module_name.grid(row=8, columnspan=5, sticky="NWE", padx=10, pady=10)
 
 name_registration = tk.Label(text="Nome: ")
 name_registration.grid(row=9, column=0, sticky="WS", padx=10)
-name_registration_input = tk.Text(width=20, height=1)
+name_registration_input = tk.Entry(width=20)
 name_registration_input.grid(row=10, column=0, columnspan=2, sticky="NW", padx=10, pady=10)
 
 address_registration = tk.Label(text="Endereço/URL: ")
 address_registration.grid(row=11, column=0, sticky="WS", padx=10)
-address_registration_selected = tk.Text(width=50, height=1)
+address_registration_selected = tk.Entry(width=50)
 address_registration_selected.grid(row=12, column=0, columnspan=2, sticky="WS", padx=10, pady=10)
 
 password_registration = tk.Label(text='Senha: ')
@@ -53,7 +53,7 @@ password_number.grid(row=13, column=3, padx=10, pady=10)
 password_number_input = tk.Entry(window)
 password_number_input.grid(row=14, column=3, padx=10, pady=10)
 
-password_selected = tk.Label(text="")
+password_selected = tk.Label(font="-size 20")
 password_selected.grid(row=14, column=0, sticky="WS", padx=10, pady=10)
 
 def calculate_password():
@@ -65,9 +65,16 @@ def calculate_password():
     password = text.join(rnd.choice(chars) for i in range(tamanho_senha))
     password_selected["text"] = password
 
-button_password = tk.Button(text='<GERAR>', command=calculate_password)
-button_password.grid(row=14,column=4, sticky="E", padx=10, pady=10)
+button_password = tk.Button(text='<GERAR>', command=calculate_password).grid(row=14,column=4, sticky="E", padx=10, pady=10)
 
-button_save = tk.Button(text='<SALVAR>', command="xyz").grid(row=15,column=4, sticky="E", padx=10, pady=10)
+def save():
+    name_registration_captured = name_registration_input.get()
+    address_registration_captured = address_registration_selected.get()
+    password_registration_captured = password_selected["text"]
+    print(name_registration_captured)
+    print(address_registration_captured)
+    print(password_registration_captured)
+
+button_save = tk.Button(text='<SALVAR>', command=save).grid(row=15,column=4, sticky="E", padx=10, pady=10)
 
 window.mainloop()
