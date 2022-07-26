@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
+import random, string
 
 address_list = [0]
+tamanho_senha = ""
 
 #create window
 window = tk.Tk()
@@ -45,14 +47,27 @@ address_registration_selected.grid(row=12, column=0, columnspan=2, sticky="WS", 
 
 password_registration = tk.Label(text='Senha: ')
 password_registration.grid(row=13, column=0, sticky="W", padx=10)
-password_selected = tk.Label(text="fsadfasfds", background='red', foreground='white')
-password_selected.grid(row=14, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
+
 password_number = tk.Label(text="Qtd. ")
 password_number.grid(row=13, column=3, padx=10, pady=10)
 password_number_input = tk.Entry(window)
 password_number_input.grid(row=14, column=3, padx=10, pady=10)
 
-button_password = tk.Button(text='<GERAR>', command="xyz").grid(row=14,column=4, sticky="E", padx=10, pady=10)
+password_selected = tk.Label(text="")
+password_selected.grid(row=14, column=0, sticky="WS", padx=10, pady=10)
+
+def calculate_password():
+    tamanho_senha = password_number_input.get()
+    tamanho_senha = int(tamanho_senha)
+    chars = string.ascii_letters + string.digits + 'ç!@#$%^&*()|-+=`~<>?:"[]\{}'
+    rnd = random.SystemRandom() #os.urandom -> gera numeros aleatórios
+    text = ''
+    password = text.join(rnd.choice(chars) for i in range(tamanho_senha))
+    password_selected["text"] = password
+
+button_password = tk.Button(text='<GERAR>', command=calculate_password)
+button_password.grid(row=14,column=4, sticky="E", padx=10, pady=10)
+
 button_save = tk.Button(text='<SALVAR>', command="xyz").grid(row=15,column=4, sticky="E", padx=10, pady=10)
 
 window.mainloop()
