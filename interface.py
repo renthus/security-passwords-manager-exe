@@ -22,7 +22,7 @@ address.grid(row=3, column=0, sticky="WS", padx=10)
 address_selected = tk.Label(text="https://www.exemplodesitequalquer.com.br", background='gray', foreground='white')
 address_selected.grid(row=4, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
-go_button = tk.Button(text='<IR>', command="xyz").grid(row=4,column=3, sticky="W", padx=10, pady=10)
+go_button = tk.Button(text='IR', command="xyz").grid(row=4,column=3, sticky="W", padx=10, pady=10)
 copy_button_go = tk.Button(text='<COPIAR LINK>', command="xyz").grid(row=4,column=4, sticky="E", padx=10, pady=10)
 
 name_login = tk.Label(text='Login / Usuário: ')
@@ -30,7 +30,7 @@ name_login.grid(row=5, column=0, sticky="W", padx=10)
 login_selected = tk.Label(text="renatodasilvamaldonado@gmail.com", background='green', foreground='white')
 login_selected.grid(row=6, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
-copy_login_button = tk.Button(text='<COPIAR LOGIN>', command="xyz")
+copy_login_button = tk.Button(text='COPIAR LOGIN', command="xyz")
 copy_login_button.grid(row=6,column=4, sticky="E", padx=10, pady=10)
 
 name_password = tk.Label(text='Senha: ')
@@ -38,7 +38,7 @@ name_password.grid(row=7, column=0, sticky="WN", padx=10)
 password_selected = tk.Label(text="12345678", background='red', foreground='white')
 password_selected.grid(row=8, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
-copy_password_button = tk.Button(text='<COPIAR SENHA>', command="xyz")
+copy_password_button = tk.Button(text='COPIAR SENHA', command="xyz")
 copy_password_button.grid(row=8,column=4, sticky="E", padx=10, pady=10)
 
 module_name = tk.Label(text='GERENCIADOR DE SENHAS SEGURAS | CADASTRO', background='orange', foreground='white', width=60, height=2, borderwidth=2, relief='solid', font="-weight bold -size 10")
@@ -79,7 +79,7 @@ def calculate_password():
     password = text.join(rnd.choice(chars) for i in range(tamanho_senha))
     password_selected["text"] = password
 
-button_password = tk.Button(text='<GERAR>', command=calculate_password).grid(row=16,column=4, sticky="E", padx=10, pady=10)
+button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=16,column=4, sticky="E", padx=10, pady=10)
 
 def save():
     name_registration_captured = name_registration_input.get()
@@ -105,6 +105,6 @@ def save():
     password_selected["text"] = ''
     name_registration_input.focus()
 
-button_save = tk.Button(text='<SALVAR>', command=save).grid(row=17,column=4, sticky="E", padx=10, pady=10)
+button_save = tk.Button(text='SALVAR', command=save).grid(row=17,column=4, sticky="E", padx=10, pady=10)
 
 window.mainloop()
