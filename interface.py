@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import random, string
+from models import Password_Register, db
 
 address_list = [0]
 tamanho_senha = ""
@@ -74,6 +75,11 @@ def save():
     print(name_registration_captured)
     print(address_registration_captured)
     print(password_registration_captured)
+    #save in db
+    xyz = Password_Register(name_registration_captured,address_registration_captured,password_registration_captured)
+    print(xyz)
+    db.session.add(xyz)
+    db.session.commit()
 
 button_save = tk.Button(text='<SALVAR>', command=save).grid(row=15,column=4, sticky="E", padx=10, pady=10)
 
