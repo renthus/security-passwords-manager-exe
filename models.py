@@ -11,11 +11,13 @@ class Password_Register(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     address = db.Column(db.String, nullable=False, unique=True)
+    login = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
 
-    def __init__(self, name, address, password):
+    def __init__(self, name, address, login, password):
         self.name = name
         self.address = address
+        self.login = login
         self.password = password
 
 ## -- recriar banco de dados
