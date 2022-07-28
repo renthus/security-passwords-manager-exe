@@ -3,6 +3,38 @@ from tkinter import ttk
 import random, string
 from models import Password_Register, db
 
+#dicionário vazio
+name_db = {}
+
+#consulta ao banco de dados
+records_db = db.session.query(Password_Register).all()
+print(records_db)
+
+for record in records_db:
+    name_db[record] = {
+        'name': record.name
+    }
+    print(name_db)
+
+list_name_db = list(name_db.values())
+print(list_name_db)
+print(type(list_name_db))
+
+
+# address_db = Password_Register.query.filter_by(name=name_db).first()
+# address_name = address_db.address
+
+
+#Read db
+# records_db = db.session.query(Password_Register).all()
+#
+# for record in records_db:
+#      name_db = list({record.name})
+#      print(name_db)
+
+# records_temp = Password_Register.query.filter_by(id=2).first()
+# print(f'id: {records_temp.id} - {records_temp.name}')
+
 address_list = [0]
 tamanho_senha = ""
 
@@ -14,16 +46,16 @@ window.rowconfigure(0, weight=1)
 
 name = tk.Label(text="Nome: ")
 name.grid(row=1, column=0, sticky="WS", padx=10)
-name_select = ttk.Combobox(window, value=address_list)
-name_select.grid(row=2, column=0, columnspan=2, sticky="NW", padx=10, pady=10)
+name_select = ttk.Combobox(window, values=list_name_db)
+name_select.grid(row=2, column=0, sticky="NW", padx=10, pady=10)
 
 address = tk.Label(text="Endereço/URL: ")
 address.grid(row=3, column=0, sticky="WS", padx=10)
-address_selected = tk.Label(text="https://www.exemplodesitequalquer.com.br", background='gray', foreground='white')
+address_selected = tk.Label(text="name1", background='gray', foreground='white')
 address_selected.grid(row=4, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 go_button = tk.Button(text='IR', command="xyz").grid(row=4,column=3, sticky="W", padx=10, pady=10)
-copy_button_go = tk.Button(text='<COPIAR LINK>', command="xyz").grid(row=4,column=4, sticky="E", padx=10, pady=10)
+copy_button_go = tk.Button(text='COPIAR LINK', command="xyz").grid(row=4,column=4, sticky="E", padx=10, pady=10)
 
 name_login = tk.Label(text='Login / Usuário: ')
 name_login.grid(row=5, column=0, sticky="W", padx=10)
@@ -91,12 +123,12 @@ def save():
     print(login_registration_captured)
     print(password_registration_captured)
     #save in db
-    xyz = Password_Register(name_registration_captured,
+    capture_data = Password_Register(name_registration_captured,
                             address_registration_captured,
                             login_registration_captured,
                             password_registration_captured)
-    print(xyz)
-    db.session.add(xyz)
+    print(capture_data)
+    db.session.add(capture_data)
     db.session.commit()
     name_registration_input.delete(0,'end')
     address_registration_selected.delete(0,'end')
@@ -106,5 +138,9 @@ def save():
     name_registration_input.focus()
 
 button_save = tk.Button(text='SALVAR', command=save).grid(row=17,column=4, sticky="E", padx=10, pady=10)
+
+
+
+
 
 window.mainloop()
