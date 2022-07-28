@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 import random, string
 from models import Password_Register, db
-import operator
 
 #empty dictionary
 name_db = {}
@@ -51,7 +50,7 @@ search_button = tk.Button(text='Pesquisar', command=search).grid(row=2,column=2,
 
 address = tk.Label(text="Endereço/URL: ")
 address.grid(row=3, column=0, sticky="WS", padx=10)
-address_selected = tk.Label(text='', background='gray', foreground='white')
+address_selected = tk.Label(text='', background='gray', foreground='white', font="-weight bold -size 12")
 address_selected.grid(row=4, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 go_button = tk.Button(text='IR', command="xyz").grid(row=4,column=3, sticky="W", padx=10, pady=10)
@@ -59,7 +58,7 @@ copy_button_go = tk.Button(text='COPIAR LINK', command="xyz").grid(row=4,column=
 
 name_login = tk.Label(text='Login / Usuário: ')
 name_login.grid(row=5, column=0, sticky="W", padx=10)
-login_selected = tk.Label(text="", background='green', foreground='white')
+login_selected = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 12")
 login_selected.grid(row=6, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 copy_login_button = tk.Button(text='COPIAR LOGIN', command="xyz")
@@ -67,7 +66,7 @@ copy_login_button.grid(row=6,column=4, sticky="E", padx=10, pady=10)
 
 name_password = tk.Label(text='Senha: ')
 name_password.grid(row=7, column=0, sticky="WN", padx=10)
-password_search = tk.Label(text="", background='red', foreground='white')
+password_search = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 12")
 password_search.grid(row=8, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 copy_password_button = tk.Button(text='COPIAR SENHA', command="xyz")
@@ -127,7 +126,7 @@ def save():
                             address_registration_captured,
                             login_registration_captured,
                             password_registration_captured)
-    print(capture_data)
+    # print(capture_data)
     db.session.add(capture_data)
     db.session.commit()
     name_registration_input.delete(0,'end')
@@ -136,6 +135,26 @@ def save():
     password_number_input.delete(0,'end')
     password_selected["text"] = ''
     name_registration_input.focus()
+    # empty dictionary
+    name_db = {}
+    # database query
+    records_db = db.session.query(Password_Register).all()
+    # query table names
+    for record in records_db:
+        name_db[record] = {
+            'name': record.name
+        }
+        print(name_db)
+    # dictionary list
+    list_name_db = list(name_db.values())
+    print(list_name_db)
+    print(type(list_name_db))
+    # names list
+    list_name = [d.get('name', None) for d in list_name_db]
+    print(list_name)
+
+    name_select = ttk.Combobox(window, values=list_name)
+    name_select.grid(row=2, column=0, sticky="NW", padx=10, pady=10)
 
 button_save = tk.Button(text='SALVAR', command=save).grid(row=17,column=4, sticky="E", padx=10, pady=10)
 
