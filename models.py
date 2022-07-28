@@ -21,5 +21,5 @@ class Password_Register(db.Model):
         self.password = password
 
 ## -- recriar banco de dados
-db.drop_all()
+#db.drop_all()
 db.create_all()

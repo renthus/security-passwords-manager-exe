@@ -22,20 +22,6 @@ print(type(list_name_db))
 list_name = [d.get('name', None) for d in list_name_db]
 print(list_name)
 
-# address_db = Password_Register.query.filter_by(name=name_db).first()
-# address_name = address_db.address
-
-
-#Read db
-# records_db = db.session.query(Password_Register).all()
-#
-# for record in records_db:
-#      name_db = list({record.name})
-#      print(name_db)
-
-# records_temp = Password_Register.query.filter_by(id=2).first()
-# print(f'id: {records_temp.id} - {records_temp.name}')
-
 address_list = [0]
 tamanho_senha = ""
 
@@ -50,9 +36,22 @@ name.grid(row=1, column=0, sticky="WS", padx=10)
 name_select = ttk.Combobox(window, values=list_name)
 name_select.grid(row=2, column=0, sticky="NW", padx=10, pady=10)
 
+def search():
+    search_name = name_select.get()
+    address_db = Password_Register.query.filter_by(name=search_name).first()
+    address_name = address_db.address
+    print(address_name)
+    address_selected["text"] = address_name
+    login_name = address_db.login
+    login_selected["text"] = login_name
+    password_name = address_db.password
+    password_search["text"] = password_name
+
+search_button = tk.Button(text='Pesquisar', command=search).grid(row=2,column=2, sticky="W", padx=10, pady=10)
+
 address = tk.Label(text="Endereço/URL: ")
 address.grid(row=3, column=0, sticky="WS", padx=10)
-address_selected = tk.Label(text='1234', background='gray', foreground='white')
+address_selected = tk.Label(text='', background='gray', foreground='white')
 address_selected.grid(row=4, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 go_button = tk.Button(text='IR', command="xyz").grid(row=4,column=3, sticky="W", padx=10, pady=10)
@@ -60,7 +59,7 @@ copy_button_go = tk.Button(text='COPIAR LINK', command="xyz").grid(row=4,column=
 
 name_login = tk.Label(text='Login / Usuário: ')
 name_login.grid(row=5, column=0, sticky="W", padx=10)
-login_selected = tk.Label(text="renatodasilvamaldonado@gmail.com", background='green', foreground='white')
+login_selected = tk.Label(text="", background='green', foreground='white')
 login_selected.grid(row=6, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 copy_login_button = tk.Button(text='COPIAR LOGIN', command="xyz")
@@ -68,8 +67,8 @@ copy_login_button.grid(row=6,column=4, sticky="E", padx=10, pady=10)
 
 name_password = tk.Label(text='Senha: ')
 name_password.grid(row=7, column=0, sticky="WN", padx=10)
-password_selected = tk.Label(text="12345678", background='red', foreground='white')
-password_selected.grid(row=8, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
+password_search = tk.Label(text="", background='red', foreground='white')
+password_search.grid(row=8, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 copy_password_button = tk.Button(text='COPIAR SENHA', command="xyz")
 copy_password_button.grid(row=8,column=4, sticky="E", padx=10, pady=10)
