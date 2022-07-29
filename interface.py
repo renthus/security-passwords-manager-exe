@@ -115,7 +115,7 @@ password_number_input.grid(row=17, column=3, sticky="ES", padx=10, pady=10)
 password_selected = tk.Label(font="-size 16")
 password_selected.grid(row=17, column=0, columnspan=2, sticky="WS", padx=10, pady=10)
 
-button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=17,column=4, sticky="ES", padx=10, pady=10)
+button_password = tk.Button(text='GERAR SENHAR', command=calculate_password).grid(row=17,column=4, sticky="ES", padx=10, pady=10)
 
 credit = tk.Label(text='Desenvolvido por: Renato da Silva Maldonado', foreground='black', font="-size 8")
 credit.grid(row=19, column=0, columnspan=5, padx=10, pady=10)
