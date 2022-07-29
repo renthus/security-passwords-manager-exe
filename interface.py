@@ -36,7 +36,7 @@ for record in records_db:
 list_name_db = list(name_db.values())
 list_name = [d.get('name', None) for d in list_name_db]
 
-#create window
+
 window = tk.Tk()
 
 window.title("Security Passwords Manager")
@@ -107,8 +107,8 @@ password_selected.grid(row=17, column=0, columnspan=2, sticky="WS", padx=10, pad
 
 button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=17,column=4, sticky="ES", padx=10, pady=10)
 
-licenca_uso = tk.Label(text='Desenvolvido por: Renato da Silva Maldonado', foreground='black', font="-size 8")
-licenca_uso.grid(row=19, column=0, columnspan=5, padx=10, pady=10)
+credit = tk.Label(text='Desenvolvido por: Renato da Silva Maldonado', foreground='black', font="-size 8")
+credit.grid(row=19, column=0, columnspan=5, padx=10, pady=10)
 
 def save():
     name_registration_captured = name_registration_input.get()
