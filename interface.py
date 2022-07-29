@@ -3,37 +3,17 @@ from tkinter import ttk
 import random, string
 from models import Password_Register, db
 
-#empty dictionary
-name_db = {}
-#database query
-records_db = db.session.query(Password_Register).all()
-#query table names
-for record in records_db:
-    name_db[record] = {
-        'name': record.name
-    }
-    print(name_db)
-#dictionary list
-list_name_db = list(name_db.values())
-print(list_name_db)
-print(type(list_name_db))
-#names list
-list_name = [d.get('name', None) for d in list_name_db]
-print(list_name)
-
 address_list = [0]
 tamanho_senha = ""
 
-#create window
-window = tk.Tk()
-
-window.title("Security Passwords Manager")
-window.rowconfigure(0, weight=1)
-
-name = tk.Label(text="Nome: ")
-name.grid(row=1, column=0, sticky="WS", padx=10)
-name_select = ttk.Combobox(window, values=list_name)
-name_select.grid(row=2, column=0, sticky="NW", padx=10, pady=10)
+def calculate_password():
+    tamanho_senha = password_number_input.get()
+    tamanho_senha = int(tamanho_senha)
+    chars = string.ascii_letters + string.digits + 'ç!@#$%^&*()|-+=`~<>?:"[]\{}'
+    rnd = random.SystemRandom()
+    text = ''
+    password = text.join(rnd.choice(chars) for i in range(tamanho_senha))
+    password_selected["text"] = password
 
 def search():
     search_name = name_select.get()
@@ -45,6 +25,27 @@ def search():
     login_selected["text"] = login_name
     password_name = address_db.password
     password_search["text"] = password_name
+
+name_db = {}
+records_db = db.session.query(Password_Register).all()
+for record in records_db:
+    name_db[record] = {
+        'name': record.name
+    }
+    print(name_db)
+list_name_db = list(name_db.values())
+list_name = [d.get('name', None) for d in list_name_db]
+
+#create window
+window = tk.Tk()
+
+window.title("Security Passwords Manager")
+window.rowconfigure(0, weight=1)
+
+name = tk.Label(text="Nome: ")
+name.grid(row=1, column=0, sticky="WS", padx=10)
+name_select = ttk.Combobox(window, values=list_name)
+name_select.grid(row=2, column=0, sticky="NW", padx=10, pady=10)
 
 search_button = tk.Button(text='Pesquisar', command=search).grid(row=2,column=2, sticky="W", padx=10, pady=10)
 
@@ -101,15 +102,6 @@ password_number_input.grid(row=16, column=3, padx=10, pady=10)
 password_selected = tk.Label(font="-size 20")
 password_selected.grid(row=16, column=0, sticky="WS", padx=10, pady=10)
 
-def calculate_password():
-    tamanho_senha = password_number_input.get()
-    tamanho_senha = int(tamanho_senha)
-    chars = string.ascii_letters + string.digits + 'ç!@#$%^&*()|-+=`~<>?:"[]\{}'
-    rnd = random.SystemRandom() #os.urandom -> gera numeros aleatórios
-    text = ''
-    password = text.join(rnd.choice(chars) for i in range(tamanho_senha))
-    password_selected["text"] = password
-
 button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=16,column=4, sticky="E", padx=10, pady=10)
 
 def save():
@@ -135,31 +127,7 @@ def save():
     password_number_input.delete(0,'end')
     password_selected["text"] = ''
     name_registration_input.focus()
-    # empty dictionary
-    name_db = {}
-    # database query
-    records_db = db.session.query(Password_Register).all()
-    # query table names
-    for record in records_db:
-        name_db[record] = {
-            'name': record.name
-        }
-        print(name_db)
-    # dictionary list
-    list_name_db = list(name_db.values())
-    print(list_name_db)
-    print(type(list_name_db))
-    # names list
-    list_name = [d.get('name', None) for d in list_name_db]
-    print(list_name)
-
-    name_select = ttk.Combobox(window, values=list_name)
-    name_select.grid(row=2, column=0, sticky="NW", padx=10, pady=10)
 
 button_save = tk.Button(text='SALVAR', command=save).grid(row=17,column=4, sticky="E", padx=10, pady=10)
-
-
-
-
 
 window.mainloop()
