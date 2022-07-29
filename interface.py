@@ -1,10 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
-import random, string, pyperclip
+import random, string
 from models import Password_Register, db
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import pyperclip as pc
 
 address_list = [0]
 tamanho_senha = ""
@@ -37,13 +38,13 @@ def web():
     driver.find_element()
 
 def address_cp():
-    pyperclip.copy(address_selected["text"])
+    pc.copy(address_selected["text"])
 
 def login_cp():
-    pyperclip.copy(login_selected["text"])
+    pc.copy(login_selected["text"])
 
 def password_cp():
-    pyperclip.copy(password_search["text"])
+    pc.copy(password_search["text"])
 
 name_db = {}
 records_db = db.session.query(Password_Register).all()
