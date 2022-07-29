@@ -2,6 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 import random, string
 from models import Password_Register, db
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 address_list = [0]
 tamanho_senha = ""
@@ -25,6 +28,13 @@ def search():
     login_selected["text"] = login_name
     password_name = address_db.password
     password_search["text"] = password_name
+
+def web():
+    servico = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=servico)
+    driver.maximize_window()
+    driver.get(address_selected["text"])
+    driver.find_element()
 
 name_db = {}
 records_db = db.session.query(Password_Register).all()
@@ -57,7 +67,7 @@ address.grid(row=3, column=0, sticky="WS", padx=10)
 address_selected = tk.Label(text='', background='gray', foreground='white', font="-weight bold -size 11")
 address_selected.grid(row=3, column=1, columnspan=2, sticky="WS", padx=10, pady=10)
 
-go_button = tk.Button(text='IR', command="xyz").grid(row=3,column=3, sticky="ES", padx=10, pady=10)
+go_button = tk.Button(text='IR', command=web).grid(row=3,column=3, sticky="ES", padx=10, pady=10)
 copy_button_go = tk.Button(text='COPIAR LINK', command="xyz").grid(row=3,column=4, sticky="ES", padx=10, pady=10)
 
 name_login = tk.Label(text='Login / Usuário: ')
