@@ -95,14 +95,14 @@ password_registration = tk.Label(text='Senha: ')
 password_registration.grid(row=16, column=0, sticky="W", padx=10)
 
 password_number = tk.Label(text="Qtd. ")
-password_number.grid(row=15, column=3, sticky="W", padx=10, pady=10)
+password_number.grid(row=16, column=3, sticky="W", padx=10, pady=10)
 password_number_input = tk.Entry(width=5)
-password_number_input.grid(row=16, column=3, padx=10, pady=10)
+password_number_input.grid(row=17, column=3, padx=10, pady=10)
 
 password_selected = tk.Label(font="-size 20")
-password_selected.grid(row=16, column=0, sticky="WS", padx=10, pady=10)
+password_selected.grid(row=17, column=0, sticky="WS", padx=10, pady=10)
 
-button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=16,column=4, sticky="E", padx=10, pady=10)
+button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=17,column=4, sticky="E", padx=10, pady=10)
 
 def save():
     name_registration_captured = name_registration_input.get()
@@ -128,6 +128,6 @@ def save():
     password_selected["text"] = ''
     name_registration_input.focus()
 
-button_save = tk.Button(text='SALVAR', command=save).grid(row=17,column=4, sticky="E", padx=10, pady=10)
+button_save = tk.Button(text='SALVAR', command=save).grid(row=18,column=4, sticky="E", padx=10, pady=10)
 
 window.mainloop()
