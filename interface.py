@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import random, string
+import random, string, pyperclip
 from models import Password_Register, db
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -36,6 +36,15 @@ def web():
     driver.get(address_selected["text"])
     driver.find_element()
 
+def address_cp():
+    pyperclip.copy(address_selected["text"])
+
+def login_cp():
+    pyperclip.copy(login_selected["text"])
+
+def password_cp():
+    pyperclip.copy(password_search["text"])
+
 name_db = {}
 records_db = db.session.query(Password_Register).all()
 for record in records_db:
@@ -45,7 +54,6 @@ for record in records_db:
     print(name_db)
 list_name_db = list(name_db.values())
 list_name = [d.get('name', None) for d in list_name_db]
-
 
 window = tk.Tk()
 
@@ -68,14 +76,14 @@ address_selected = tk.Label(text='', background='gray', foreground='white', font
 address_selected.grid(row=3, column=1, columnspan=2, sticky="WS", padx=10, pady=10)
 
 go_button = tk.Button(text='IR', command=web).grid(row=3,column=3, sticky="ES", padx=10, pady=10)
-copy_button_go = tk.Button(text='COPIAR LINK', command="xyz").grid(row=3,column=4, sticky="ES", padx=10, pady=10)
+copy_button_go = tk.Button(text='COPIAR LINK', command=address_cp).grid(row=3,column=4, sticky="ES", padx=10, pady=10)
 
 name_login = tk.Label(text='Login / Usuário: ')
 name_login.grid(row=4, column=0, sticky="WS", padx=10)
 login_selected = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 11")
 login_selected.grid(row=4, column=1, columnspan=2, sticky="SW", padx=10, pady=10)
 
-copy_login_button = tk.Button(text='COPIAR LOGIN', command="xyz")
+copy_login_button = tk.Button(text='COPIAR LOGIN', command=login_cp)
 copy_login_button.grid(row=4,column=4, sticky="ES", padx=10, pady=10)
 
 name_password = tk.Label(text='Senha: ')
@@ -83,7 +91,7 @@ name_password.grid(row=5, column=0, sticky="WS", padx=10)
 password_search = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 11")
 password_search.grid(row=5, column=1, columnspan=2, sticky="WS", padx=10, pady=10)
 
-copy_password_button = tk.Button(text='COPIAR SENHA', command="xyz")
+copy_password_button = tk.Button(text='COPIAR SENHA', command=password_cp)
 copy_password_button.grid(row=5,column=4, sticky="ES", padx=10, pady=10)
 
 module_name_cadastro = tk.Label(text='GERENCIADOR DE SENHAS SEGURAS | CADASTRO', background='green', foreground='white', width=60, height=2, borderwidth=2, relief='solid', font="-weight bold -size 10")
