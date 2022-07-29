@@ -42,39 +42,42 @@ window = tk.Tk()
 window.title("Security Passwords Manager")
 window.rowconfigure(0, weight=1)
 
-name = tk.Label(text="Nome: ")
-name.grid(row=1, column=0, sticky="WS", padx=10)
-name_select = ttk.Combobox(window, values=list_name)
-name_select.grid(row=2, column=0, sticky="NW", padx=10, pady=10)
+module_name_cadastro = tk.Label(text='GERENCIADOR DE SENHAS SEGURAS | CONSULTA', background='blue', foreground='white', width=60, height=2, borderwidth=2, relief='solid', font="-weight bold -size 10")
+module_name_cadastro.grid(row=1, columnspan=5, sticky="NWE", padx=10, pady=10)
 
-search_button = tk.Button(text='Pesquisar', command=search).grid(row=2,column=2, sticky="W", padx=10, pady=10)
+name = tk.Label(text="Nome: ")
+name.grid(row=2, column=0, sticky="SW", padx=10)
+name_select = ttk.Combobox(window, values=list_name)
+name_select.grid(row=2, column=1, sticky="SW", padx=10, pady=10)
+
+search_button = tk.Button(text='Pesquisar', command=search).grid(row=2,column=3, sticky="ES", padx=10, pady=10)
 
 address = tk.Label(text="Endereço/URL: ")
 address.grid(row=3, column=0, sticky="WS", padx=10)
-address_selected = tk.Label(text='', background='gray', foreground='white', font="-weight bold -size 12")
-address_selected.grid(row=4, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
+address_selected = tk.Label(text='', background='gray', foreground='white', font="-weight bold -size 11")
+address_selected.grid(row=3, column=1, columnspan=2, sticky="WS", padx=10, pady=10)
 
-go_button = tk.Button(text='IR', command="xyz").grid(row=4,column=3, sticky="W", padx=10, pady=10)
-copy_button_go = tk.Button(text='COPIAR LINK', command="xyz").grid(row=4,column=4, sticky="E", padx=10, pady=10)
+go_button = tk.Button(text='IR', command="xyz").grid(row=3,column=3, sticky="ES", padx=10, pady=10)
+copy_button_go = tk.Button(text='COPIAR LINK', command="xyz").grid(row=3,column=4, sticky="ES", padx=10, pady=10)
 
 name_login = tk.Label(text='Login / Usuário: ')
-name_login.grid(row=5, column=0, sticky="W", padx=10)
-login_selected = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 12")
-login_selected.grid(row=6, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
+name_login.grid(row=4, column=0, sticky="WS", padx=10)
+login_selected = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 11")
+login_selected.grid(row=4, column=1, columnspan=2, sticky="SW", padx=10, pady=10)
 
 copy_login_button = tk.Button(text='COPIAR LOGIN', command="xyz")
-copy_login_button.grid(row=6,column=4, sticky="E", padx=10, pady=10)
+copy_login_button.grid(row=4,column=4, sticky="ES", padx=10, pady=10)
 
 name_password = tk.Label(text='Senha: ')
-name_password.grid(row=7, column=0, sticky="WN", padx=10)
-password_search = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 12")
-password_search.grid(row=8, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
+name_password.grid(row=5, column=0, sticky="WS", padx=10)
+password_search = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 11")
+password_search.grid(row=5, column=1, columnspan=2, sticky="WS", padx=10, pady=10)
 
 copy_password_button = tk.Button(text='COPIAR SENHA', command="xyz")
-copy_password_button.grid(row=8,column=4, sticky="E", padx=10, pady=10)
+copy_password_button.grid(row=5,column=4, sticky="ES", padx=10, pady=10)
 
-module_name = tk.Label(text='GERENCIADOR DE SENHAS SEGURAS | CADASTRO', background='orange', foreground='white', width=60, height=2, borderwidth=2, relief='solid', font="-weight bold -size 10")
-module_name.grid(row=9, columnspan=5, sticky="NWE", padx=10, pady=10)
+module_name_cadastro = tk.Label(text='GERENCIADOR DE SENHAS SEGURAS | CADASTRO', background='green', foreground='white', width=60, height=2, borderwidth=2, relief='solid', font="-weight bold -size 10")
+module_name_cadastro.grid(row=9, columnspan=5, sticky="NWE", padx=10, pady=10)
 
 name_registration = tk.Label(text="Nome: ")
 name_registration.grid(row=10, column=0, sticky="WS", padx=10)
@@ -87,22 +90,25 @@ address_registration_selected = tk.Entry(width=50)
 address_registration_selected.grid(row=13, column=0, columnspan=2, sticky="WS", padx=10, pady=10)
 
 login_registration = tk.Label(text='Login / Usuário: ')
-login_registration.grid(row=14, column=0, sticky="W", padx=10)
+login_registration.grid(row=14, column=0, sticky="WS", padx=10)
 login_registration_selected = tk.Entry(width=50)
 login_registration_selected.grid(row=15, column=0, columnspan=3, sticky="WS", padx=10, pady=10)
 
 password_registration = tk.Label(text='Senha: ')
-password_registration.grid(row=16, column=0, sticky="W", padx=10)
+password_registration.grid(row=16, column=0, sticky="WS", padx=10)
 
 password_number = tk.Label(text="Qtd. ")
-password_number.grid(row=16, column=3, sticky="W", padx=10, pady=10)
+password_number.grid(row=16, column=3, sticky="ES", padx=10, pady=10)
 password_number_input = tk.Entry(width=5)
-password_number_input.grid(row=17, column=3, padx=10, pady=10)
+password_number_input.grid(row=17, column=3, sticky="ES", padx=10, pady=10)
 
-password_selected = tk.Label(font="-size 20")
-password_selected.grid(row=17, column=0, sticky="WS", padx=10, pady=10)
+password_selected = tk.Label(font="-size 16")
+password_selected.grid(row=17, column=0, columnspan=2, sticky="WS", padx=10, pady=10)
 
-button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=17,column=4, sticky="E", padx=10, pady=10)
+button_password = tk.Button(text='GERAR', command=calculate_password).grid(row=17,column=4, sticky="ES", padx=10, pady=10)
+
+licenca_uso = tk.Label(text='Desenvolvido por: Renato da Silva Maldonado', foreground='black', font="-size 8")
+licenca_uso.grid(row=19, column=0, columnspan=5, padx=10, pady=10)
 
 def save():
     name_registration_captured = name_registration_input.get()
