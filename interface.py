@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import pyperclip as pc
 
-address_list = [0]
+address_list = []
 tamanho_senha = ""
 
 def calculate_password():
