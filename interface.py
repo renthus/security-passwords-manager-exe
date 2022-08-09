@@ -30,6 +30,12 @@ def search():
     password_name = address_db.password
     password_search["text"] = password_name
 
+def delete():
+    search_name = name_select.get()
+    address_db = Password_Register.query.filter_by(name=search_name).first()
+    db.session.delete(address_db)
+    db.session.commit()
+
 def web():
     servico = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=servico)
@@ -69,22 +75,23 @@ name.grid(row=2, column=0, sticky="SW", padx=10)
 name_select = ttk.Combobox(window, values=list_name)
 name_select.grid(row=2, column=1, sticky="SW", padx=10, pady=10)
 
-search_button = tk.Button(text='Pesquisar', command=search).grid(row=2,column=3, sticky="ES", padx=10, pady=10)
+search_button = tk.Button(text='PESQUISAR', command=search, background='white', foreground='blue', width=9).grid(row=2,column=3, sticky="ES", padx=10, pady=10)
+delete_button = tk.Button(text='EXCLUIR', command=delete, background='red', foreground='white', width=12).grid(row=2,column=4, sticky="ES", padx=10, pady=10)
 
 address = tk.Label(text="Endereço/URL: ")
 address.grid(row=3, column=0, sticky="WS", padx=10)
 address_selected = tk.Label(text='', background='gray', foreground='white', font="-weight bold -size 11")
 address_selected.grid(row=3, column=1, columnspan=2, sticky="WS", padx=10, pady=10)
 
-go_button = tk.Button(text='IR', command=web).grid(row=3,column=3, sticky="ES", padx=10, pady=10)
-copy_button_go = tk.Button(text='COPIAR LINK', command=address_cp).grid(row=3,column=4, sticky="ES", padx=10, pady=10)
+go_button = tk.Button(text='IR =>', command=web, background='white', foreground='blue', width=9).grid(row=3,column=3, sticky="ES", padx=10, pady=10)
+copy_button_go = tk.Button(text='COPIAR LINK', command=address_cp, width=12, background='blue', foreground='white').grid(row=3,column=4, sticky="ES", padx=10, pady=10)
 
 name_login = tk.Label(text='Login / Usuário: ')
 name_login.grid(row=4, column=0, sticky="WS", padx=10)
 login_selected = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 11")
 login_selected.grid(row=4, column=1, columnspan=2, sticky="SW", padx=10, pady=10)
 
-copy_login_button = tk.Button(text='COPIAR LOGIN', command=login_cp)
+copy_login_button = tk.Button(text='COPIAR LOGIN', command=login_cp, width=12, background='blue', foreground='white')
 copy_login_button.grid(row=4,column=4, sticky="ES", padx=10, pady=10)
 
 name_password = tk.Label(text='Senha: ')
@@ -92,7 +99,7 @@ name_password.grid(row=5, column=0, sticky="WS", padx=10)
 password_search = tk.Label(text="", background='gray', foreground='white', font="-weight bold -size 11")
 password_search.grid(row=5, column=1, columnspan=2, sticky="WS", padx=10, pady=10)
 
-copy_password_button = tk.Button(text='COPIAR SENHA', command=password_cp)
+copy_password_button = tk.Button(text='COPIAR SENHA', command=password_cp, width=12, background='blue', foreground='white')
 copy_password_button.grid(row=5,column=4, sticky="ES", padx=10, pady=10)
 
 module_name_cadastro = tk.Label(text='GERENCIADOR DE SENHAS SEGURAS | CADASTRO', background='green', foreground='white', width=60, height=2, borderwidth=2, relief='solid', font="-weight bold -size 10")
@@ -124,7 +131,7 @@ password_number_input.grid(row=17, column=3, sticky="ES", padx=10, pady=10)
 password_selected = tk.Label(font="-size 16")
 password_selected.grid(row=17, column=0, columnspan=2, sticky="WS", padx=10, pady=10)
 
-button_password = tk.Button(text='GERAR SENHAR', command=calculate_password).grid(row=17,column=4, sticky="ES", padx=10, pady=10)
+button_password = tk.Button(text='GERAR SENHAR', command=calculate_password, background='green', foreground='white', width=12).grid(row=17,column=4, sticky="ES", padx=10, pady=10)
 
 credit = tk.Label(text='Desenvolvido por: Renato da Silva Maldonado', foreground='black', font="-size 8")
 credit.grid(row=19, column=0, columnspan=5, padx=10, pady=10)
@@ -153,6 +160,6 @@ def save():
     password_selected["text"] = ''
     name_registration_input.focus()
 
-button_save = tk.Button(text='SALVAR', command=save).grid(row=18,column=4, sticky="E", padx=10, pady=10)
+button_save = tk.Button(text='SALVAR', command=save, background='green', foreground='white', width=12).grid(row=18,column=4, sticky="E", padx=10, pady=10)
 
 window.mainloop()
