@@ -10,8 +10,6 @@
 
 - [Funcionalidades](#funcionalidades)
 
-- [Aplicação](#aplicação)
-
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 - [Acesso ao projeto](#acesso-ao-projeto)
@@ -24,8 +22,9 @@
 
 <p align="justify">
 Este projeto full stack de gerenciamento de senhas seguras consiste numa interface gráfica criada com a biblioteca Tkinter do Python para possibilitar ao usuário a criação de suas senhas em sites da web, programas ou outros aplicativos, além de guardá-las no banco de dados SQLite, através de ORM utilizando o framework SQLAlchemy.
-
-![Imagem do programa aberto](https://user-images.githubusercontent.com/49447595/184178859-17cf6781-c3ab-4457-8fa1-e101b82a8aac.png)
+   
+![Gerenciador de senhas seguras](https://user-images.githubusercontent.com/49447595/184183331-305aa7c7-d79d-415e-b752-07e19c895ed6.PNG)
+   
 </p>
 
 ## Funcionalidades
@@ -37,8 +36,6 @@ Este projeto full stack de gerenciamento de senhas seguras consiste numa interfa
 :heavy_check_mark: `Funcionalidade 3:` Registro das senhas e dados de login em banco de dados para serem consultados quando necessário.
 
 :heavy_check_mark: `Funcionalidade 4:` Pode ser utilizado mesmo sem conexão com a internet.
-
-## Aplicação
 
 ## Tecnologias utilizadas
 <br>
