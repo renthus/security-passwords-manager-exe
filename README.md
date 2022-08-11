@@ -1,4 +1,4 @@
-# Gerenciador de Senhas Seguras <img src="https://komarev.com/ghpvc/?username=renthus&label=Profile%20views&color=0e75b6&style=flat" alt="renthus">
+# Gerenciador de Senhas Seguras
 <hr>
 
 <p>
@@ -17,7 +17,7 @@
 
 - [Acesso ao projeto](#acesso-ao-projeto)
 
-- [Abrir e rodar o projeto](#abrir-e-rodar-o-projeto)
+- [Abrir e executar o projeto](#abrir-e-rodar-o-projeto)
 
 - [Desenvolvedores](#desenvolvedores)
 
@@ -44,21 +44,22 @@ Este projeto full stack de gerenciamento de senhas seguras consiste numa interfa
 </div>
 
 
-## 🛠 Tecnologias utilizadas
+## Tecnologias utilizadas
 <br>
 <img align="center" alt="Renato-Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+<img align="center" alt="Renato-SQLite" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg">
 
 ## Acesso ao projeto
 
 Você pode [acessar o código fonte do projeto](https://github.com/renthus/security-passwords-manager-exe) ou [baixá-lo](https://1drv.ms/u/s!AiBuG1LvnB7lfcnLJbxNO55llTw?e=Rx3IvY).
 
-## Abrir e rodar o projeto
+## Abrir e executar o projeto
 
 Após baixar o projeto, você pode abrir com o arquivo `Interface.exe`. Para isso, siga os passos abaixo:
 
 - `Localize a pasta` onde o projeto foi baixado.
 - `Descompacte a pasta` salvando no local em seu computador que julgar mais adequado.
-- `Localize` o arquivo `Interface.exe` e crie um atalho para sua área de trabalho.
+- `Localize` o arquivo `Interface.exe` dentro da pasta e crie um atalho para sua área de trabalho.
 - `Clique duas vezes no atalho` em sua área de trabalho e começe a utilizar o programa.
 
 ## Desenvolvedor
