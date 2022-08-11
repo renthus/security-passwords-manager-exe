@@ -44,7 +44,7 @@ Este projeto full stack de gerenciamento de senhas seguras consiste numa interfa
 
 ## Acesso ao projeto
 
-Você pode [acessar o código fonte do projeto](https://github.com/renthus/security-passwords-manager-exe) ou [realizar o download](https://1drv.ms/u/s!AiBuG1LvnB7lfcnLJbxNO55llTw?e=Rx3IvY).
+Você pode [acessar o código fonte do projeto](https://github.com/renthus/security-passwords-manager-exe) ou [realizar o download](https://1drv.ms/u/s!AiBuG1LvnB7lfqBdshimiZT_18A).
 
 ## Abrir e executar o projeto
 
