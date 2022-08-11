@@ -1,5 +1,4 @@
 # Gerenciador de Senhas Seguras
-<hr>
 
 <p>
    <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
@@ -13,11 +12,11 @@
 
 - [Aplicação](#aplicação)
 
-- [Ferramentas utilizadas](#ferramentas-utilizadas)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 - [Acesso ao projeto](#acesso-ao-projeto)
 
-- [Abrir e executar o projeto](#abrir-e-rodar-o-projeto)
+- [Abrir e executar o projeto](#abrir-e-executar-o-projeto)
 
 - [Desenvolvedores](#desenvolvedores)
 
@@ -25,6 +24,8 @@
 
 <p align="justify">
 Este projeto full stack de gerenciamento de senhas seguras consiste numa interface gráfica criada com a biblioteca Tkinter do Python para possibilitar ao usuário a criação de suas senhas em sites da web, programas ou outros aplicativos, além de guardá-las no banco de dados SQLite, através de ORM utilizando o framework SQLAlchemy.
+
+![Imagem do programa aberto](https://user-images.githubusercontent.com/49447595/184178859-17cf6781-c3ab-4457-8fa1-e101b82a8aac.png)
 </p>
 
 ## Funcionalidades
@@ -38,11 +39,6 @@ Este projeto full stack de gerenciamento de senhas seguras consiste numa interfa
 :heavy_check_mark: `Funcionalidade 4:` Pode ser utilizado mesmo sem conexão com a internet.
 
 ## Aplicação
-
-<div align="center">
-
-</div>
-
 
 ## Tecnologias utilizadas
 <br>
@@ -62,4 +58,6 @@ Após baixar o projeto, você pode abrir com o arquivo `Interface.exe`. Para iss
 - `Localize` o arquivo `Interface.exe` dentro da pasta e crie um atalho para sua área de trabalho.
 - `Clique duas vezes no atalho` em sua área de trabalho e começe a utilizar o programa.
 
-## Desenvolvedor
+## Desenvolvedores
+| [<img src="https://avatars.githubusercontent.com/u/49447595?v=4" width=115><br><sub>Renato Maldonado</sub>](https://github.com/renthus)
+| :---: |
