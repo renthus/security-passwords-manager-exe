@@ -38,9 +38,9 @@ Este projeto full stack de gerenciamento de senhas seguras consiste numa interfa
 :heavy_check_mark: `Funcionalidade 4:` Pode ser utilizado mesmo sem conexão com a internet.
 
 ## Tecnologias utilizadas
-<br>
-<img align="center" alt="Renato-Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-<img align="center" alt="Renato-SQLite" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg">
+<p>
+<img align="center" alt="Renato-Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"> <img align="center" alt="Renato-SQLite" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg"> <img align="center" alt="Renato-SQLite" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pycharm/pycharm-original.svg">
+</p>
 
 ## Acesso ao projeto
 
